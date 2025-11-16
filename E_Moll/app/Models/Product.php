@@ -16,13 +16,12 @@ class Product extends Model
         'price',
         'quantity',
         'status',
-        'category_id',
         'image_url'
     ];
 
     // Relationship: Product belongs to Category
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 }

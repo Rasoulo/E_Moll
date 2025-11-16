@@ -22,7 +22,6 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'quantity' => $this->faker->numberBetween(0, 100),
             'status' => 'active',
-            'category_id' => Category::factory(), // automatically creates a category
             'image_url' => $this->faker->imageUrl(640, 480, 'products', true),
         ];
     }

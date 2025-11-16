@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,10 +23,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        
+
         Category::factory()
-        ->count(5)
-        ->hasProducts(10)
-        ->create();
+            ->count(5)
+            ->hasAttached(
+                Product::factory()->count(10)
+            )
+            ->create();
     }
 }
